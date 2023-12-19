@@ -11,7 +11,7 @@ Hay diferentes tipos de modelos de datos para cada uno de los componentes; por l
 
 ## Contexto
 
-### Historia ficticia
+### Servicios y contexto
 
 Una empresa camaneja llamada "chicatita" que se encarga de enviar paquetes entre personas y empresas. Actualmente se opera en 3 paises en las siguientes area:
 
@@ -24,21 +24,22 @@ Una empresa camaneja llamada "chicatita" que se encarga de enviar paquetes entre
 
 Actualmente da un grupo de servicios para sus usuarios de la siguiente forma.
 
-| Servicio | Descripcion | Formato | Duración | ¿Hay Recojo? | ¿Hay devolución? |
-|----------|-------------|---------|----------|--------------|------------------|
-| Envio    | Envio de paquetes ligeros dentro de una región | C2C y B2C | Entre 90 minutos a 48 horas | Si | Si |
-| Mudanza  | Envio de paquetes pesados dentro de un región | B2B y C2C | Entre 2 horas a 96 horas | Si | No |
-| Transferencia | Envio de paquetes pesados entre regiones | B2B y B2C | Entre 5 horas a 168 horas | Si | No |
+| Servicio | Descripcion | Formato | Duración | ¿Hay Recojo? | ¿Hay devolución? | Tipo de vehiculo |
+|----------|-------------|---------|----------|--------------|------------------|------------------|
+| Envio    | Envio de paquetes ligeros dentro de una región | C2C y B2C | Entre 90 minutos a 48 horas | Si | Si | Auto, van, moto, bicicleta |
+| Mudanza  | Envio de paquetes pesados dentro de un región | B2B y C2C | Entre 2 horas a 96 horas | Si | No | Van, Camión |
+| Transferencia | Envio de paquetes pesados entre regiones | B2B y B2C | Entre 5 horas a 168 horas | Si | No | Van, Camión |
 
 En el caso del servicio "Envio", hay subservicios dentro del mismo que se puede utilizar:
 
-| Subservicio | Descripcion | Hay recojo | Hay almacenamiento temporal | 
-|-------------|-------------|------------|-----------------------------|
-| Express | Entregar pedidos en menos de 90 minutos posterior a la creación. | Si | No |
-| Regular | Entregado dentro de entre 90 minutos a 18 horas posterior a la creación. | Si | No |
-| Next | Entregado dentro de las siguientes 24 horas posterior a la creación. | Si | Si |
-| Next 2 | Entregado dentro de las siguientes 48 horas posterior a la creación. | Si | Si |
+| Subservicio | Descripcion | Hay recojo | Hay almacenamiento temporal | Tipo de vehiculo |
+|-------------|-------------|------------|-----------------------------|------------------|
+| Express | Entregar pedidos en menos de 90 minutos posterior a la creación. | Si | No | Moto y bicicleta |
+| Regular | Entregado dentro de entre 90 minutos a 18 horas posterior a la creación. | Si | No | Auto, bicicleta, auto, van|
+| Next | Entregado dentro de las siguientes 24 horas posterior a la creación. | Si | Si | Auto, van, moto, bicicleta |
+| Next 2 | Entregado dentro de las siguientes 48 horas posterior a la creación. | Si | Si | Auto, van, moto, bicicleta |
 
+### Entidades
 
 ## Estructura del proyecto
 
