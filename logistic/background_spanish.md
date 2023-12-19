@@ -24,14 +24,20 @@ Una empresa camaneja llamada "chicatita" que se encarga de enviar paquetes entre
 
 Actualmente da un grupo de servicios para sus usuarios de la siguiente forma.
 
-| Servicio | Descripcion | Formato |
-|----------|-------------|---------|
-| Envio    | Envio de paquetes ligeros dentro de una región | C2C y B2C |
-| Mudanza  | Envio de paquetes pesados dentro de un región | B2B y C2C |
-| Transferencia | Envio de paquetes pesados entre regiones | B2B y B2C |
+| Servicio | Descripcion | Formato | Duración | ¿Hay Recojo? | ¿Hay devolución? |
+|----------|-------------|---------|----------|--------------|------------------|
+| Envio    | Envio de paquetes ligeros dentro de una región | C2C y B2C | Entre 90 minutos a 48 horas | Si | Si |
+| Mudanza  | Envio de paquetes pesados dentro de un región | B2B y C2C | Entre 2 horas a 96 horas | Si | No |
+| Transferencia | Envio de paquetes pesados entre regiones | B2B y B2C | Entre 5 horas a 168 horas | Si | No |
 
-En el caso del servicio "Envio" 
+En el caso del servicio "Envio", hay subservicios dentro del mismo que se puede utilizar:
 
+| Subservicio | Descripcion | Hay recojo | Hay almacenamiento temporal | 
+|-------------|-------------|------------|-----------------------------|
+| Express | Entregar pedidos en menos de 90 minutos posterior a la creación. | Si | No |
+| Regular | Entregado dentro de entre 90 minutos a 18 horas posterior a la creación. | Si | No |
+| Next | Entregado dentro de las siguientes 24 horas posterior a la creación. | Si | Si |
+| Next 2 | Entregado dentro de las siguientes 48 horas posterior a la creación. | Si | Si |
 
 
 ## Estructura del proyecto
