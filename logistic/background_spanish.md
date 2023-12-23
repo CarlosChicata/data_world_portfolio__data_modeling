@@ -39,7 +39,57 @@ En el caso del servicio "Envio", hay subservicios dentro del mismo que se puede 
 | Next | Entregado dentro de las siguientes 24 horas posterior a la creación. | Si | Si | Auto, van, moto, bicicleta |
 | Next 2 | Entregado dentro de las siguientes 48 horas posterior a la creación. | Si | Si | Auto, van, moto, bicicleta |
 
-### Entidades
+### Proceso
+
+Hay varias formas para enviar una solicitud para utilizar nuestros servicios:
+
+- Integración via Webhook
+- Landing page.
+- Telefono.
+
+Cuando recibimos la solicitud, esta puede pasar por un flujo de estados:
+
+<imagen>
+
+1.  _**Creado**_: Se registro la solicitud.
+2.  _**Validando**_: Se debe validar la solicitud. Solo aplica para landing page y telefono.
+3.  _**Validado**_: La solicitud es valida para operar.
+4.  _**Llendo a almacen**_: La solicitud se lleva hacia el almacen.
+5.  _**Saliendo de almacen**_: La solicitud sale del almacen.
+6.  _**Entregando**_: La solicitud se esta llendo a entregar al usuario. 
+7.  _**Entregado**_: La solicitud se entrego al usuario.
+8.  _**Recogiendo**_: La solicitud se esta llendo a recoger al propietario.
+9.  _**Recogido**_: La solicitud se recogio del usuario y esta en poder del conductor.
+10. _**Devolviendo**_: Regresando la solicitud al propietario. Solo Aplica para logistica inversa.
+11. _**Devuelto**_: Se entrego la solicitud al propietario. Solo Aplica para logistica inversa.
+12. _**Retornando**_: Se regresa la solicitud a almacen.
+13. _**Retorno**_: La solicitud esta en el almacen y no esta con el conductor.
+14. _**Perdido**_: Se perdio la solicitud dentro del almacen.
+15. _**Cancelado**_: Se cancelo la solicitud.
+16. _**Robado**_: Se lo quitaron al conductor en su operación.
+
+No todos los servicios utilizan todos los estados dentro de una solicitud:
+
+| Estado | Aplica en Envio | Aplica en Mudanza | Aplica en Transferencia |
+|--------|-----------------|-------------------|-------------------------|
+| _**Creado**_ | x | x | x |
+| _**Validando**_ | x | x | x |
+| _**Validado**_ | x | x | x |
+| _**Llendo a almacen**_ | x |  |  |
+| _**Saliendo de almacen**_ | x |  |  |
+| _**Entregando**_ | x | x | x |
+| _**Entregado**_ | x | x | x |
+| _**Recogiendo**_ | x | x | x |
+| _**Recogido**_ | x | x | x |
+| _**Devolviendo**_ | x |  |  |
+| _**Devuelto**_ | x |  |  |
+| _**Retornando**_ | x |  |  |
+| _**Retorno**_ | x |  |  |
+| _**Perdido**_ | x |  |  |
+| _**Cancelado**_ | x | x | x |
+| _**Robado**_ | x | x | x |
+
+Las solicitudes de envio puede tener logistica inversa: trata que el usuario envia algo al propietario a cambio.
 
 ## Estructura del proyecto
 
