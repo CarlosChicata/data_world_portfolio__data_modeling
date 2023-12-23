@@ -39,7 +39,7 @@ En el caso del servicio "Envio", hay subservicios dentro del mismo que se puede 
 | Next | Entregado dentro de las siguientes 24 horas posterior a la creación. | Si | Si | Auto, van, moto, bicicleta |
 | Next 2 | Entregado dentro de las siguientes 48 horas posterior a la creación. | Si | Si | Auto, van, moto, bicicleta |
 
-### Proceso
+### Procesos
 
 Hay varias formas para enviar una solicitud para utilizar nuestros servicios:
 
@@ -67,6 +67,9 @@ Cuando recibimos la solicitud, esta puede pasar por un flujo de estados:
 14. _**Perdido**_: Se perdio la solicitud dentro del almacen.
 15. _**Cancelado**_: Se cancelo la solicitud.
 16. _**Robado**_: Se lo quitaron al conductor en su operación.
+17. _**Procesando**_: Esta ocupando la solicitud para crear una operación de entrega.
+18. _**Procesado**_: La solicitud esta ocupada en una operación y no puede ser utilizado más.
+19. _**Libre**_: Esta solicitud puede ser utilizadas para crear una operación.
 
 No todos los servicios utilizan todos los estados dentro de una solicitud:
 
@@ -88,8 +91,25 @@ No todos los servicios utilizan todos los estados dentro de una solicitud:
 | _**Perdido**_ | x |  |  |
 | _**Cancelado**_ | x | x | x |
 | _**Robado**_ | x | x | x |
+| _**Procesando**_ | x | x | x |
+| _**Procesado**_ | x | x | x |
+| _**Libre**_ | x | x | x |
 
-Las solicitudes de envio puede tener logistica inversa: trata que el usuario envia algo al propietario a cambio.
+Las solicitudes de envio puede tener logistica inversa: trata que el usuario envia algo al propietario a cambio. Toda solicitud es agrupada en una operación para poder gestionar mejor los recursos y pagar mejor a los conductores. Las operaciones pueden tener una de estos estados
+
+<image>
+
+1. _**Creado**_: Se creo la operación.
+2. _**Asignado**_: Se busca a conductor para asignar la operación.
+3. _**Asignado**_: Se asigno la operación a un conductor.
+4. _**Reasignado**_: Se reasignola operación a otro conductor.
+5. _**Cancelado**_: Se cancelo la operación y liberaron las solicitudes.
+6. _**En proceso**_: Se esta ejecutando la operación.
+7. _**Finalizado**_: Se finalizo la operación.
+8. _**Fusionado**_: Se fusiconarón 2 o más operaciones en una sola operación; ya no tiene un conductor asignado.
+9. _**Dividido**_: Se divide una operación en varias operaciones menores; ya no tiene un conductor asignado.
+10. _**Desasignar**_: Se quito el conductor de la operación.
+
 
 ## Estructura del proyecto
 
